@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:octopus/octopus.dart';
-import 'package:octopus_menu_navigation/root.dart';
-import 'package:octopus_menu_navigation/screens.dart';
+import 'package:octopus_menu_navigation/common/presentation/screens/auth_screen.dart';
+import 'package:octopus_menu_navigation/common/presentation/screens/events_screen.dart';
+import 'package:octopus_menu_navigation/common/presentation/screens/home_screen.dart';
+import 'package:octopus_menu_navigation/common/presentation/screens/notifications_screen.dart';
+import 'package:octopus_menu_navigation/common/presentation/screens/products_screen.dart';
+import 'package:octopus_menu_navigation/common/presentation/screens/profile_screen.dart';
+import 'package:octopus_menu_navigation/common/presentation/widgets/menu_placeholder.dart';
+import 'package:octopus_menu_navigation/common/presentation/root.dart';
 
 /// [Enum] representing application routes, each associated with a `name` and an optional `title`.
 ///
@@ -34,6 +40,8 @@ enum Routes with OctopusRoute {
         Routes.menu => const MenuPlaceholderScreen(),
         Routes.notifications => const NotificationsScreen(),
         Routes.profile => const ProfileScreen(),
-        Routes.events => EventsScreen(title: node.arguments['title']),
+        Routes.events => EventsScreen(
+            title: node.arguments['title'],
+          ),
       };
 }

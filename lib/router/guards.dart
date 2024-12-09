@@ -1,18 +1,18 @@
 import 'dart:async';
 
 import 'package:octopus/octopus.dart';
+import 'package:octopus_menu_navigation/common/enums/root_tabs_enum.dart';
 import 'package:octopus_menu_navigation/router/router.dart';
-import 'package:octopus_menu_navigation/router/tabs.dart';
 
 /// Do not allow any nested routes at `root` inderectly except of `*-tab`.
 class TabGuard extends OctopusGuard {
   TabGuard();
 
-  static final _homeTab = '${RootTabsEnum.home.name}-tab';
-  static final _productsTab = '${RootTabsEnum.products.name}-tab';
-  static final _menuTab = '${RootTabsEnum.menu.name}-tab';
-  static final _notificationsTab = '${RootTabsEnum.notifications.name}-tab';
-  static final _profileTab = '${RootTabsEnum.profile.name}-tab';
+  static final _homeTab = RootTabsEnum.home.bucket;
+  static final _productsTab = RootTabsEnum.products.bucket;
+  static final _menuTab = RootTabsEnum.menu.bucket;
+  static final _notificationsTab = RootTabsEnum.notifications.bucket;
+  static final _profileTab = RootTabsEnum.profile.bucket;
 
   String currentTab = _homeTab;
   String previousTab = _homeTab;
@@ -46,8 +46,7 @@ class TabGuard extends OctopusGuard {
     // <--- Home tab node --->
 
     // Upsert home tab node if not exists.
-    final home =
-        root.putIfAbsent(_homeTab, () => OctopusNode.mutable(_homeTab));
+    final home = root.putIfAbsent(_homeTab, () => OctopusNode.mutable(_homeTab));
     if (!home.hasChildren) {
       home.add(OctopusNode.mutable(Routes.home.name));
     }
@@ -55,8 +54,7 @@ class TabGuard extends OctopusGuard {
     // <--- Products tab node --->
 
     // Upsert products tab node if not exists.
-    final products =
-        root.putIfAbsent(_productsTab, () => OctopusNode.mutable(_productsTab));
+    final products = root.putIfAbsent(_productsTab, () => OctopusNode.mutable(_productsTab));
     if (!products.hasChildren) {
       products.add(OctopusNode.mutable(Routes.products.name));
     }
@@ -64,8 +62,7 @@ class TabGuard extends OctopusGuard {
     // <--- Menu tab node --->
 
     // Upsert menu tab node if not exists.
-    final menu =
-        root.putIfAbsent(_menuTab, () => OctopusNode.mutable(_menuTab));
+    final menu = root.putIfAbsent(_menuTab, () => OctopusNode.mutable(_menuTab));
     if (!menu.hasChildren) {
       menu.add(OctopusNode.mutable(Routes.menu.name));
     }
@@ -73,8 +70,7 @@ class TabGuard extends OctopusGuard {
     // <--- Notifications tab node --->
 
     // Upsert notifications tab node if not exists.
-    final notifications = root.putIfAbsent(
-        _notificationsTab, () => OctopusNode.mutable(_notificationsTab));
+    final notifications = root.putIfAbsent(_notificationsTab, () => OctopusNode.mutable(_notificationsTab));
     if (!notifications.hasChildren) {
       notifications.add(OctopusNode.mutable(Routes.notifications.name));
     }
@@ -82,8 +78,7 @@ class TabGuard extends OctopusGuard {
     // <--- Profile tab node --->
 
     // Upsert profile tab node if not exists.
-    final profile =
-        root.putIfAbsent(_profileTab, () => OctopusNode.mutable(_profileTab));
+    final profile = root.putIfAbsent(_profileTab, () => OctopusNode.mutable(_profileTab));
     if (!profile.hasChildren) {
       profile.add(OctopusNode.mutable(Routes.profile.name));
     }

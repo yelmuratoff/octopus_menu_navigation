@@ -1,14 +1,14 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:octopus/octopus.dart';
+import 'package:octopus_menu_navigation/common/enums/root_tabs_enum.dart';
 import 'package:octopus_menu_navigation/router/tabs.dart';
-import 'package:octopus_menu_navigation/widgets/bottom_navigation_bar.dart';
-import 'package:octopus_menu_navigation/widgets/menu_sheet.dart';
+import 'package:octopus_menu_navigation/common/presentation/widgets/bottom_bar.dart';
+import 'package:octopus_menu_navigation/common/presentation/widgets/menu_sheet.dart';
 
 /// The root page of the application.
 class RootScreen extends StatefulWidget {
-  const RootScreen({Key? key})
-      : super(key: key ?? const ValueKey<String>('RootScreen'));
+  const RootScreen({Key? key}) : super(key: key ?? const ValueKey<String>('RootScreen'));
 
   @override
   State<RootScreen> createState() => _RootScreenState();
@@ -60,7 +60,7 @@ class _RootScreenState extends State<RootScreen> {
 
   // Bottom navigation bar item tapped
   void _onItemTapped(int index) {
-    final menuTab = _octopusStateObserver.value.findByName('menu-tab');
+    final menuTab = _octopusStateObserver.value.findByName(RootTabsEnum.menu.bucket);
     if (menuTab == null) return;
 
     final nextTab = RootTabsEnum.values[index];
@@ -122,7 +122,7 @@ class _RootScreenState extends State<RootScreen> {
   void _onOctopusStateChanged() {
     const deepEquality = DeepCollectionEquality();
     final currentArguments = _octopusStateObserver.value.arguments;
-    final menuTab = _octopusStateObserver.value.findByName('menu-tab');
+    final menuTab = _octopusStateObserver.value.findByName(RootTabsEnum.menu.bucket);
     if (menuTab == null) return;
 
     // Если аргументы не изменились, вероятно, это pop с другого экрана

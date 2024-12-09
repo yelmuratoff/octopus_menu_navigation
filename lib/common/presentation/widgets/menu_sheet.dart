@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:octopus/octopus.dart';
+import 'package:octopus_menu_navigation/common/enums/root_tabs_enum.dart';
 import 'package:octopus_menu_navigation/router/router.dart';
-import 'package:octopus_menu_navigation/widgets/bottom_navigation_bar.dart';
+import 'package:octopus_menu_navigation/common/presentation/widgets/bottom_bar.dart';
 
 class MenuBottomSheet extends StatelessWidget {
   const MenuBottomSheet({super.key, this.onItemTapped});
@@ -37,7 +38,7 @@ class MenuBottomSheet extends StatelessWidget {
               (value) {
                 if (!context.mounted) return;
                 context.octopus.setState((state) => state
-                  ..findByName('menu-tab')?.add(
+                  ..findByName(RootTabsEnum.menu.bucket)?.add(
                     Routes.events.node(),
                   ));
               },
