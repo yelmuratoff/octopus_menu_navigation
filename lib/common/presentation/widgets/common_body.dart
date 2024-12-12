@@ -5,10 +5,12 @@ class CommonBody extends StatelessWidget {
     super.key,
     required this.title,
     this.onPressed,
+    this.onPressed2,
   });
 
   final String title;
   final VoidCallback? onPressed;
+  final VoidCallback? onPressed2;
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +19,18 @@ class CommonBody extends StatelessWidget {
         title: Text(title),
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: onPressed,
-          child: const Text('Tap'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: onPressed,
+              child: const Text('Tap'),
+            ),
+            ElevatedButton(
+              onPressed: onPressed2,
+              child: const Text('Tap2'),
+            ),
+          ],
         ),
       ),
     );

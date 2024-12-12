@@ -69,7 +69,7 @@ class _RootScreenState extends State<RootScreen> {
       // Open menu
       _showMenu();
     } else {
-      if (_tab == RootTabsEnum.menu) {
+      if (_tab == RootTabsEnum.menu && nextTab == RootTabsEnum.menu) {
         // Show menu
         _showMenu();
         return;

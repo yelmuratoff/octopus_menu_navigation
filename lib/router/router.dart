@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:octopus/octopus.dart';
 import 'package:octopus_menu_navigation/common/presentation/screens/auth_screen.dart';
 import 'package:octopus_menu_navigation/common/presentation/screens/events_screen.dart';
+import 'package:octopus_menu_navigation/common/presentation/screens/feed_screen.dart';
 import 'package:octopus_menu_navigation/common/presentation/screens/home_screen.dart';
 import 'package:octopus_menu_navigation/common/presentation/screens/notifications_screen.dart';
+import 'package:octopus_menu_navigation/common/presentation/screens/post_screen.dart';
 import 'package:octopus_menu_navigation/common/presentation/screens/products_screen.dart';
 import 'package:octopus_menu_navigation/common/presentation/screens/profile_screen.dart';
 import 'package:octopus_menu_navigation/common/presentation/widgets/menu_placeholder.dart';
@@ -16,6 +18,8 @@ enum Routes with OctopusRoute {
   auth('auth', title: 'Auth'),
   root('root', title: 'Root'),
   home('home', title: 'Home'),
+  feed('feed', title: 'Feed'),
+  post('post', title: 'Post'),
   products('products', title: 'Products'),
   menu('menu', title: 'Menu'),
   notifications('notifications', title: 'Notifications'),
@@ -42,6 +46,10 @@ enum Routes with OctopusRoute {
         Routes.profile => const ProfileScreen(),
         Routes.events => EventsScreen(
             title: node.arguments['title'],
+          ),
+        Routes.feed => const FeedScreen(),
+        Routes.post => PostScreen(
+            id: node.arguments['id'],
           ),
       };
 }
