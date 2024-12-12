@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
     return CommonBody(
       title: 'Home Screen',
       onPressed: () {
-           context.octopus.setArguments((args) => args['tab'] = 'home').then(
+        context.octopus.setArguments((args) => args['tab'] = 'home').then(
           (value) {
             if (!context.mounted) return;
             context.octopus.setState((state) => state

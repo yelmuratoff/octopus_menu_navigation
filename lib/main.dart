@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:octopus/octopus.dart';
+import 'package:octopus_menu_navigation/router/feed_scope_guard.dart';
 import 'package:octopus_menu_navigation/router/guards.dart';
 import 'package:octopus_menu_navigation/router/router.dart';
 
@@ -20,6 +21,7 @@ class _MyAppState extends State<MyApp> {
     defaultRoute: Routes.auth,
     guards: [
       TabGuard(),
+      FeedWrapperGuard(allowedScreens: {'feed, feed-wrapper', 'post'}),
     ],
   );
 
@@ -27,10 +29,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Octopus Menu Navigation',
+      title: 'Octopus Navigation',
       routerConfig: _router.config,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+        ),
         useMaterial3: true,
       ),
     );

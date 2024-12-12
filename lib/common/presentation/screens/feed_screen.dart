@@ -31,17 +31,10 @@ class _FeedScreenState extends State<FeedScreen> {
               context.read<FeedController>().increment();
             },
             onPressed2: () {
-              context.octopus.setArguments((args) => args['tab'] = 'home').then(
-                (value) {
-                  if (!context.mounted) return;
-                  context.octopus.setState((state) => state
-                    ..findByName('home-tab')?.add(
-                      Routes.post.node(arguments: {'id': '1'}),
-                    ));
-                },
-              );
-
-              // print(context.octopus.state..findByName('feed'));
+              context.octopus.setState((state) => state
+                ..findByName('home-tab')?.add(
+                  Routes.post.node(arguments: {'id': '1'}),
+                ));
             },
           );
         },

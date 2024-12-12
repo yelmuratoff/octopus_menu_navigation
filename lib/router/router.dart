@@ -3,6 +3,7 @@ import 'package:octopus/octopus.dart';
 import 'package:octopus_menu_navigation/common/presentation/screens/auth_screen.dart';
 import 'package:octopus_menu_navigation/common/presentation/screens/events_screen.dart';
 import 'package:octopus_menu_navigation/common/presentation/screens/feed_screen.dart';
+import 'package:octopus_menu_navigation/common/presentation/screens/feed_wrapper.dart';
 import 'package:octopus_menu_navigation/common/presentation/screens/home_screen.dart';
 import 'package:octopus_menu_navigation/common/presentation/screens/notifications_screen.dart';
 import 'package:octopus_menu_navigation/common/presentation/screens/post_screen.dart';
@@ -19,6 +20,7 @@ enum Routes with OctopusRoute {
   root('root', title: 'Root'),
   home('home', title: 'Home'),
   feed('feed', title: 'Feed'),
+  feedWrapper('feed-wrapper', title: 'Feed Wrapper'),
   post('post', title: 'Post'),
   products('products', title: 'Products'),
   menu('menu', title: 'Menu'),
@@ -47,6 +49,7 @@ enum Routes with OctopusRoute {
         Routes.events => EventsScreen(
             title: node.arguments['title'],
           ),
+        Routes.feedWrapper => const FeedWrapper(),
         Routes.feed => const FeedScreen(),
         Routes.post => PostScreen(
             id: node.arguments['id'],

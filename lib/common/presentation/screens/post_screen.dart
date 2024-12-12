@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:octopus/octopus.dart';
+import 'package:octopus_menu_navigation/common/controllers/home_controller.dart';
 import 'package:octopus_menu_navigation/common/presentation/widgets/common_body.dart';
+import 'package:provider/provider.dart';
 
 class PostScreen extends StatelessWidget {
   const PostScreen({
@@ -12,11 +14,13 @@ class PostScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CommonBody(
-      title: 'Post Screen: Id: $id\nCounter:',
-      onPressed: () {
-        debugPrint('Tree: \n${context.octopus.state}');
-      },
-    );
+    return Consumer<FeedController>(builder: (context, value, child) {
+      return CommonBody(
+        title: 'Post | Counter: ${value.counter}',
+        onPressed: () {
+          debugPrint('Tree: \n${context.octopus.state}');
+        },
+      );
+    });
   }
 }
