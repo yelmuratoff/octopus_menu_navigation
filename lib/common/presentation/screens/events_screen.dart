@@ -8,8 +8,10 @@ class EventsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CommonBody(
-      title: 'Events Screen: $title',
-    );
+    return Builder(builder: (context) {
+      return CommonBody(
+        title: 'Events Screen: $title',
+      );
+    });
   }
 }

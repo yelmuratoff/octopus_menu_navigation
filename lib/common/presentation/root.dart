@@ -126,7 +126,7 @@ class _RootScreenState extends State<RootScreen> {
     if (menuTab == null) return;
 
     // Если аргументы не изменились, вероятно, это pop с другого экрана
-    if (deepEquality.equals(_lastArguments, currentArguments)) {
+    if (deepEquality.equals(_lastArguments, currentArguments) && _tab == RootTabsEnum.menu) {
       if (menuTab.children.length <= 1) {
         _switchToPreviousTab();
       }

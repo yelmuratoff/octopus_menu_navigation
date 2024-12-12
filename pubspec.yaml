@@ -38,6 +38,7 @@ dependencies:
     ^0.0.9
     # path: ../
   collection: ^1.18.0
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:

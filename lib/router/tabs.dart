@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:octopus/octopus.dart';
+import 'package:octopus_menu_navigation/common/controllers/home_controller.dart';
 import 'package:octopus_menu_navigation/common/enums/root_tabs_enum.dart';
+import 'package:provider/provider.dart';
 
 // <--- Home tab --->
 
@@ -8,8 +10,15 @@ class HomeTab extends StatelessWidget {
   const HomeTab({super.key});
 
   @override
-  Widget build(BuildContext context) => BucketNavigator(
-        bucket: RootTabsEnum.home.bucket,
+  Widget build(BuildContext context) => MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (_) => HomeController(),
+          ),
+        ],
+        child: BucketNavigator(
+          bucket: RootTabsEnum.home.bucket,
+        ),
       );
 }
 
